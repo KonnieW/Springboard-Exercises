@@ -1,0 +1,48 @@
+How Web Works Exercise
+Part One: Solidify Terminology
+In your own terms, define the following terms:
+
+What is HTTP?
+HTTP stands for hypertext transfer protocols (stand web). It is one of most common protocols which are the methods that browsers and severs communicate.
+There is also a secure version of it HTTPS.
+
+What is a URL?
+A URL is a universal resource locator, it turns a URL link into a website; finds the address of the site.
+
+What is DNS?
+DNS stands for domain name system; it is basically the phonebook for the web.
+If other sources don't work, then the search will go to the DNS server which will hopefully resolve that hostname into an IP Address and send it back.
+
+What is a query string?
+A query string provides extra information - search terms, info from forms, etc.
+The server is provided this info; might use to change page.
+Presents data is key-value pairs in this format: ?key1=value1&key2=value2.
+
+What are two HTTP verbs and how are they different?
+The term verbs are GET and POST.
+GET: requests from server without side effects (doesn't change server data etc); get information.
+Entering URL in browser, clicking links and some form submissions.
+
+POST: requests from server with side effects (ie, change data on server).
+Some form submissions (but never entering-URL-in-browser or links).
+Always do this if there’s a side-effect: sending mail, charge credit card, etc.
+
+What is an HTTP request?
+An HTTP request is a request from a client to a server which follows the HTTP protocol (eg a request for HTML from news.google.com).
+
+What is an HTTP response?
+An HTTP response is a response from a server to a client which follows the HTTP protocol (eg sending back HTML/CSS/JS/etc)
+
+What is an HTTP header? Give a couple examples of request and response headers you have seen.
+Headers provide more information about the request/response:
+Hostnames you're asking about.
+Date you browser thinks it is.
+Language your browser wants information in.
+Any cookies that server has sent, etc.
+
+What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
+Your browser “resolves” the name into an IP address using DNS.
+Your browser makes a request to that IP address, including headers (info about browser, any previous cookies, and other things).
+The server sends a response (typically, HTML, with a status code (200 if it was sucessful).
+The browser makes a DOM from that HTML, and finds any other resources needed (images, CSS, JavaScript, etc).
+The browser makes separate HTTP requests for those resources and receives response from the server for each.

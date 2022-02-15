@@ -1,4 +1,4 @@
-from app import app
+from my_app import app
 import unittest
 
 class TestCalculator(unittest.TestCase):

@@ -1,0 +1,15 @@
+
+{% block title %}   <h1>Question 1</h1> {% endblock %}
+
+{% block content %}
+<h3>Check an option</h3>
+<form action="/page_one">
+  <p>Have you shopped here before?</p>
+  <input type="radio" id="yes">
+  <label for="yes">Yes</label><br>
+  <input type="radio" id="no">
+  <label for="no">No</label><br>
+ <button>Submit</button>
+</form>
+  
+{% endblock %}

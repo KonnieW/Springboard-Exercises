@@ -1,7 +1,11 @@
-from flask import Flask, request, render_template, redirect, flash
+from flask import Flask, render_template
 # from surveys import satisfaction_survey as survey
+from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = "oh-so-secret"
+
+debug = DebugToolbarExtension(app)
 
 
 @app.route("/")

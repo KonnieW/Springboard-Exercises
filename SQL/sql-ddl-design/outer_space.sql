@@ -65,20 +65,21 @@ VALUES
 INSERT INTO moon
   (moon_name)
 VALUES  
-  ('{"The Moon"}', '{"Phobos", "Deimos"}', '{}', '{"Naiad", "Thalassa", "Despina", "Galatea", "Larissa", "S/2004 N 1", 
-  "Proteus", "Triton", "Nereid", "Halimede", "Sao", "Laomedeia", "Psamathe", "Neso"}', '{}', '{}');
+  -- ('The Moon', 'Phobos", "Deimos"}', '{}', '{"Naiad", "Thalassa", "Despina", "Galatea", "Larissa", "S/2004 N 1", 
+  -- "Proteus", "Triton", "Nereid", "Halimede", "Sao", "Laomedeia", "Psamathe", "Neso"}', '{}', '{}');
 
-  ('{"The Moon"}', '{"Phobos"}', '{"Deimos"}', '{}', '{"Naiad"}', '{"Thalassa"}', '{"Despina"}', '{"Galatea"}', '{"Larissa"}', '{"S/2004 N 1"}', 
-  '{"Proteus"}', '{"Triton"}', '{"Nereid"}', '{"Halimede"}', '{"Sao"}', '{"Laomedeia"}', '{"Psamathe"}', '{"Neso"}');
+  ('{"The Moon"}'), ('{"Phobos"}'), ('{"Deimos"}'), ('{}'), ('{"Naiad"}'), ('{"Thalassa"}'), ('{"Despina"}'), ('{"Galatea"}'), ('{"Larissa"}'), ('{"S/2004 N 1"}'), 
+  ('{"Proteus"}'), ('{"Triton"}'), ('{"Nereid"}'), ('{"Halimede"}'), ('{"Sao"}'), ('{"Laomedeia"}'), ('{"Psamathe"}'), ('{"Neso"}'), ('{}'), ('{}'); 
+  --do I need the blank {}??
 
 
 INSERT INTO orbit
   (orbits_around)
 VALUES
-  ('The Sun', 'Proxima Centauri', 'Gliese 876');
+  ('The Sun'), ('Proxima Centauri'), ('Gliese 876');
 
 
-INSERT INTO planet_moon
+INSERT INTO planet_moons
   (planets_id, moon_id)
 VALUES
 (

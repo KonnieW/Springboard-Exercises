@@ -29,62 +29,45 @@ CREATE DATABASE outer_space;
 
 \c outer_space
 
+CREATE TABLE orbits
+(
+   id SERIAL PRIMARY KEY,
+   name TEXT
+);
+
 CREATE TABLE planets
 (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
   orbital_period_in_years FLOAT NOT NULL,
-  orbits_around TEXT NOT NULL,
   galaxy TEXT NOT NULL,
+  orbits_id INTEGER REFERENCES orbits (id) NOT NULL
 );
 
 CREATE TABLE moons
 (
   id SERIAL PRIMARY KEY,
-  moons_name TEXT
+  name TEXT,
+  planets_id INTEGER REFERENCES planets (id)
 );
 
-
-CREATE TABLE planet_moons         --another table and planet orbits
-(
-  id SERIAL PRIMARY KEY,
-  planets_id INTEGER REFERENCES planets (id),
-  moon_id INTEGER REFERENCES moons(id),
-);
-
-INSERT INTO planets
-  (name, orbital_period_in_years, galaxys)
-VALUES
-  ('Earth', 1.00, 'Milky Way'),
-  ('Mars', 1.88, 'Milky Way'),
-  ('Venus', 0.62,'Milky Way'),
-  ('Neptune', 164.8, 'Milky Way'),
-  ('Proxima Centauri b', 0.03, 'Milky Way'),
-  ('Gliese 876 b', 0.23, 'Milky Way');
-
-INSERT INTO moon
-  (moon_name)
-VALUES  
-  -- ('The Moon', 'Phobos", "Deimos"}', '{}', '{"Naiad", "Thalassa", "Despina", "Galatea", "Larissa", "S/2004 N 1", 
-  -- "Proteus", "Triton", "Nereid", "Halimede", "Sao", "Laomedeia", "Psamathe", "Neso"}', '{}', '{}');
-
-  ('{"The Moon"}'), ('{"Phobos"}'), ('{"Deimos"}'), ('{}'), ('{"Naiad"}'), ('{"Thalassa"}'), ('{"Despina"}'), ('{"Galatea"}'), ('{"Larissa"}'), ('{"S/2004 N 1"}'), 
-  ('{"Proteus"}'), ('{"Triton"}'), ('{"Nereid"}'), ('{"Halimede"}'), ('{"Sao"}'), ('{"Laomedeia"}'), ('{"Psamathe"}'), ('{"Neso"}'), ('{}'), ('{}'); 
-  --do I need the blank {}??
-
-
-INSERT INTO orbit
-  (orbits_around)
+INSERT INTO orbits
+  (name)
 VALUES
   ('The Sun'), ('Proxima Centauri'), ('Gliese 876');
 
-
-INSERT INTO planet_moons
-  (planets_id, moon_id)
+INSERT INTO planets
+  (name, orbital_period_in_years, galaxy, orbits_id)
 VALUES
-(
-  (1,1), (2,2), (2,3), 
-  
-  );
+  ('Earth', 1.00, 'Milky Way', 1),
+  ('Mars', 1.88, 'Milky Way', 1),
+  ('Venus', 0.62,'Milky Way', 1),
+  ('Neptune', 164.8, 'Milky Way', 1),
+  ('Proxima Centauri b', 0.03, 'Milky Way', 2),
+  ('Gliese 876 b', 0.23, 'Milky Way', 3);
 
-  --no moons leave it out completely
+INSERT INTO moons
+  (name, planets_id)
+VALUES  
+  ('The Moon', 1), ('Phobos', 2), ('Deimos', 2), ('Naiad', 4), ('Thalassa', 4), ('Despina', 4), ('Galatea', 4), ('Larissa', 4), ('S/2004 N 1', 4), 
+  ('Proteus', 4), ('Triton', 4), ('Nereid', 4), ('Halimede', 4), ('Sao', 4), ('Laomedeia', 4), ('Psamathe', 4), ('Neso' , 4); 

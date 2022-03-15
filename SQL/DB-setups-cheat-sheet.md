@@ -9,9 +9,10 @@ Flask virtual environment setup/installations:
 6. to uninstall any installations: pip uninstall name_of_installation
 7. pip install flask
 8. optional: pip install flask-debugtoolbar
+
 Flask sqlalchemy installations:
-8. pip install psycopg2-binary
-9. pip install flask-sqlalchemy 
+1. pip install psycopg2-binary
+2. pip install flask-sqlalchemy 
 
 PostgreSQL installations/setup:
 1. to check if postgresql is working: sudo service postgresql status

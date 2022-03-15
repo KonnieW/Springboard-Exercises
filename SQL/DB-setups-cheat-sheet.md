@@ -1,12 +1,17 @@
+*ctrl + shift + v = preview of .md file interface
+
 Flask virtual environment setup/installations:
 1. python3 -m venv venv
 2. source venv/bin/activate
 3. to exit the virtual environment: deactivate venv
-4. pip install Flask
-5. optional: pip install flask-debugtoolbar
+4. to view the list of required installations: pip freeze
+5. to create a requirements list: pip freeze > requirements.txt
+6. to uninstall any installations: pip uninstall name_of_installation
+7. pip install flask
+8. optional: pip install flask-debugtoolbar
 Flask sqlalchemy installations:
-5. pip install psycopg2-binary
-6. pip install flask-sqlalchemy 
+8. pip install psycopg2-binary
+9. pip install flask-sqlalchemy 
 
 PostgreSQL installations/setup:
 1. to check if postgresql is working: sudo service postgresql status

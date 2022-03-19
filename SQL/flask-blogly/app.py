@@ -13,8 +13,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #ECHO-Helps track/print SQL statements to the terminal.
 app.config['SQLALCHEMY_ECHO'] = True
-# app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
-#turns how debugtoolbar redirect notifications
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = True
+#can turn off debugtoolbar redirect notifications but making False
 debug = DebugToolbarExtension(app)
 
 #allows you to call on the connect_db(app) function in models.py
@@ -27,6 +27,7 @@ def home():
     return redirect("/users")
 
 @app.route('/users')
+# """ This order by query lists the users starting from last name. """
 def users_list():
     users = User.query.order_by(User.last_name, User.first_name).all()
     return render_template('users/index.html', users=users)

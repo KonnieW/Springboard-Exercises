@@ -26,11 +26,25 @@ Flask sqlalchemy installations/setup:
    This only works once, won't update if your db/table has already been created, for now to update just drop the table and run it again.
 5. To create instances of object based on classes in ipython and save to the table (db.session is like a git staging area in python):
    ```
+   %run app.py
    #name of class is User
-   user1 = User(first_name="Boe", last_name="Sage")
-   db.session.add(user1) #required to add to database
+   User
+   models.User
+   Boe = User(first_name="Boe", last_name="Sage")
+   db.session.add(Boe) #required to add to database
    db.session.commit()   #commit the transaction
+   #for multiple commits
+   first = ['Bob', 'Joe', 'Sarge']
+   last = ['Josey', 'Horseshoe', 'Walters']
+   
+   #zip is a built in function to create tuples by itereating over combo of lists
+   zip(first,last)                   
+   #iterate over the combo and get 2 values and a tuple, zip here combines them into a new list
+   people = [User(first=f, last=l) for f,l in zip(first,last)]
+   db.session.add.all(people)
+   db.session.commit() 
    ```
+6. ipython commit errors type in: db.session.rollback()
 
 PostgreSQL installations/setup:
 1. to check if postgresql is working: sudo service postgresql status
@@ -43,7 +57,7 @@ PostgreSQL installations/setup:
 8. cd into the main folder directory where the seed files are held but don't activate psql yet, instead type the seed command line
 9. seed a database file: psql < my_database.sql
 10. \c _dbname_ to connect to specific ones
-11. d to see the attributes and \dt to see the data without all the extra info
+11. \d to see the attributes and \dt to see the data without all the extra info, \d+ name_of_table will show you the constraints
 12. \d name_of_table to see info on the table itself
 13. SELECT * FROM _nameoftable_; to get data
 14. \q to exit and return to main terminal page
